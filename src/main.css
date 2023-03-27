@@ -3,6 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	font-family: "JetBrains Mono", monospace;
+@layer {
+	body {
+		font-family: "JetBrains Mono", monospace;
+	}
+	.input-range {
+		-webkit-appearance: none;
+		height: 8px;
+		outline: none;
+		width: 100%;
+	}
+	.input-range::-webkit-slider-runnable-track {
+		-webkit-appearance: none;
+		height: 8px;
+		background: #000000;
+	}
+	.input-range::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		background: white;
+		border-radius: 9999px;
+		border: 1px solid white;
+		height: 27px;
+		margin-top: -9px;
+		width: 28px;
+		cursor: pointer;
+	}
+	.input-range::-webkit-slider-thumb:hover {
+		-webkit-appearance: none;
+		background: #000000;
+	}
 }

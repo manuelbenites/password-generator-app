@@ -1,25 +1,16 @@
 import { useState, useEffect } from "react"
 import { generateString } from "./lib/functions.js"
+
 import IconCheck from "./components/IconCheck.jsx"
-import IconCopy from "./components/IconCopy.jsx"
 import IconArrowRight from "./components/IconArrowRight.jsx"
+import RenderPassword from "./components/RenderPassword.jsx"
+import RenderPasswordStrength from "./components/RenderPasswordStrength.jsx"
 
 export default function App() {
 	const [everyValues, setEveryValues] = useState("")
 	const [everyValuesArr, setEveryValuesArr] = useState([])
 	const [minLengthResult, setMinLengthResult] = useState(10)
-	const [isItCopied, setIsItCopied] = useState("")
 	const [password, setPassword] = useState("")
-
-	const copyContent = async () => {
-		if (password) {
-			await navigator.clipboard.writeText(password)
-			setIsItCopied("copied")
-			setTimeout(() => {
-				setIsItCopied("")
-			}, 2000)
-		}
-	}
 
 	const handleCheckBoxChange = (e) => {
 		const { value, checked } = e.target
@@ -48,26 +39,7 @@ export default function App() {
 	return (
 		<div className="flex justify-center items-center w-full h-screen bg-background">
 			<div className="text-gains-boro w-[343px] sm:w-[540px]">
-				<h1 className="font-bold text-center text-light-slate-gray">
-					Password Generator
-				</h1>
-				<div className="flex justify-between items-center px-4 mt-4 h-16 sm:px-8 sm:h-20 bg-dark-slate-gray">
-					{password ? (
-						<span className="text-2xl font-bold">{password}</span>
-					) : (
-						<span className="text-2xl font-bold opacity-25 sm:text-[32px]">
-							P4$5W0rD!
-						</span>
-					)}
-					<div className="flex gap-4 justify-center items-center">
-						<span className="hidden text-lg font-bold uppercase sm:block text-pale-green">
-							{isItCopied}
-						</span>
-						<button onClick={copyContent}>
-							<IconCopy className="fill-pale-green hover:fill-[#ffffff] transition-colors" />
-						</button>
-					</div>
-				</div>
+				<RenderPassword password={password} />
 				<div className="p-4 mt-4 sm:py-8 sm:px-8 sm:mt-6 bg-dark-slate-gray">
 					<div className="flex justify-between items-center">
 						<span className="font-bold sm:text-lg">Character Length</span>
@@ -80,8 +52,8 @@ export default function App() {
 							<input
 								name="length"
 								type="range"
-								min="1"
-								max="20"
+								min="4"
+								max="16"
 								value={minLengthResult}
 								className="input-range"
 								onChange={handleChangePasswordLength}
@@ -132,7 +104,7 @@ export default function App() {
 									onChange={handleCheckBoxChange}
 									name="symbols"
 									type="checkbox"
-									value="!@#$%^&"
+									value="@$!%*?&"
 									className="border-white appearance-none cursor-pointer outline-none checked:text-white peer w-[18px] h-[18px] border-[2px] checked:bg-pale-green checked:border-pale-green"
 								/>
 								<IconCheck className="absolute font-black pointer-events-none left-[3px] fill-dark-slate-gray peer-checked:fill-deep-black" />
@@ -141,12 +113,7 @@ export default function App() {
 								</span>
 							</div>
 						</div>
-						<div className="flex justify-between items-center px-4 mb-4 h-14 uppercase sm:mb-8 sm:h-16 bg-deep-black">
-							<h1 className="text-lg font-bold text-light-slate-gray">
-								strength
-							</h1>
-							<div className="text-lg font-bold">medium</div>
-						</div>
+						<RenderPasswordStrength password={password} />
 						<button className="flex justify-center items-center w-full h-14 font-bold uppercase border-2 transition-colors sm:h-16 border-pale-green bg-pale-green text-dark-slate-gray hover:fill-pale-green hover:bg-dark-slate-gray hover:text-pale-green">
 							<h1 className="mr-4 sm:text-lg">generate</h1>
 							<IconArrowRight className="fill-inherit" />

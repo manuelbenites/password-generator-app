@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import DisplayGraph from "./DisplayGraph.jsx"
 
 export default function RenderPasswordStrength({ password }) {
-	const [strengthValue, setStrengthValue] = useState("medium")
+	const [strengthValue, setStrengthValue] = useState("")
 	let strongPassword = new RegExp(
 		"(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])(?=.*[^A-Za-z0-9])(?=.{8,})"
 	)
@@ -12,7 +12,9 @@ export default function RenderPasswordStrength({ password }) {
 	let weakPassword = new RegExp("((?=.*[a-z])(?=.{4,}))")
 
 	useEffect(() => {
-		if (strongPassword.test(password)) {
+		if (!password) {
+			setStrengthValue("")
+		} else if (strongPassword.test(password)) {
 			setStrengthValue("strong")
 		} else if (mediumPassword.test(password)) {
 			setStrengthValue("medium")

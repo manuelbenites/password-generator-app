@@ -2,6 +2,7 @@ import TooWeakGraphDiv from "./TooWeakGraphDiv.jsx"
 import WeakGraphDiv from "./WeakGraphDiv.jsx"
 import MediumGraphDiv from "./MediumGraphDiv.jsx"
 import StrongGraphDiv from "./StrongGraphDiv.jsx"
+import NonGraphDiv from "./NonGraphDiv.jsx"
 
 export default function DisplayGraph({ strengthValue }) {
 	if (strengthValue === "strong") {
@@ -15,5 +16,8 @@ export default function DisplayGraph({ strengthValue }) {
 	}
 	if (strengthValue === "too weak!") {
 		return <TooWeakGraphDiv />
+	}
+	if (strengthValue === "") {
+		return <NonGraphDiv />
 	}
 }

@@ -9,7 +9,7 @@ import RenderPasswordStrength from "./components/RenderPasswordStrength.jsx"
 export default function App() {
 	const [everyValues, setEveryValues] = useState("")
 	const [everyValuesArr, setEveryValuesArr] = useState([])
-	const [minLengthResult, setMinLengthResult] = useState(10)
+	const [minLengthResult, setMinLengthResult] = useState(0)
 	const [password, setPassword] = useState("")
 
 	const handleCheckBoxChange = (e) => {
@@ -52,8 +52,8 @@ export default function App() {
 							<input
 								name="length"
 								type="range"
-								min="4"
-								max="16"
+								min="0"
+								max="20"
 								value={minLengthResult}
 								className="input-range"
 								onChange={handleChangePasswordLength}

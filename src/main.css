@@ -22,7 +22,7 @@
 		-webkit-appearance: none;
 		background: white;
 		border-radius: 9999px;
-		border: 1px solid white;
+		border: 2px solid white;
 		height: 27px;
 		margin-top: -9px;
 		width: 28px;
@@ -30,6 +30,7 @@
 	}
 	.input-range::-webkit-slider-thumb:hover {
 		-webkit-appearance: none;
+		border-color: #a4ffaf;
 		background: #000000;
 	}
 }

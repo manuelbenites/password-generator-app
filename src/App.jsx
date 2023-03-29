@@ -69,9 +69,9 @@ export default function App() {
 									className="border-white appearance-none cursor-pointer outline-none checked:text-white peer w-[18px] h-[18px] border-[2px] checked:bg-pale-green checked:border-pale-green"
 								/>
 								<IconCheck className="absolute font-black pointer-events-none left-[3px] fill-dark-slate-gray peer-checked:fill-deep-black" />
-								<span className="ml-5 font-bold sm:ml-6 sm:text-lg">
+								<label className="ml-5 font-bold sm:ml-6 sm:text-lg">
 									Include Uppercase Letters
-								</span>
+								</label>
 							</div>
 							<div className="flex relative items-center">
 								<input
@@ -82,9 +82,9 @@ export default function App() {
 									className="border-white appearance-none cursor-pointer outline-none checked:text-white peer w-[18px] h-[18px] border-[2px] checked:bg-pale-green checked:border-pale-green"
 								/>
 								<IconCheck className="absolute font-black pointer-events-none left-[3px] fill-dark-slate-gray peer-checked:fill-deep-black" />
-								<span className="ml-5 font-bold sm:ml-6 sm:text-lg">
+								<label className="ml-5 font-bold sm:ml-6 sm:text-lg">
 									Include Lowercase Letters
-								</span>
+								</label>
 							</div>
 							<div className="flex relative items-center">
 								<input
@@ -95,9 +95,9 @@ export default function App() {
 									className="border-white appearance-none cursor-pointer outline-none checked:text-white peer w-[18px] h-[18px] border-[2px] checked:bg-pale-green checked:border-pale-green"
 								/>
 								<IconCheck className="absolute font-black pointer-events-none left-[3px] fill-dark-slate-gray peer-checked:fill-deep-black" />
-								<span className="ml-5 font-bold sm:ml-6 sm:text-lg">
+								<label className="ml-5 font-bold sm:ml-6 sm:text-lg">
 									Include Numbers
-								</span>
+								</label>
 							</div>
 							<div className="flex relative items-center mb-8">
 								<input
@@ -108,14 +108,17 @@ export default function App() {
 									className="border-white appearance-none cursor-pointer outline-none checked:text-white peer w-[18px] h-[18px] border-[2px] checked:bg-pale-green checked:border-pale-green"
 								/>
 								<IconCheck className="absolute font-black pointer-events-none left-[3px] fill-dark-slate-gray peer-checked:fill-deep-black" />
-								<span className="ml-5 font-bold sm:ml-6 sm:text-lg">
+								<label className="ml-5 font-bold sm:ml-6 sm:text-lg">
 									Include Symbols
-								</span>
+								</label>
 							</div>
 						</div>
 						<RenderPasswordStrength password={password} />
-						<button className="flex justify-center items-center w-full h-14 font-bold uppercase border-2 transition-colors sm:h-16 border-pale-green bg-pale-green text-dark-slate-gray hover:fill-pale-green hover:bg-dark-slate-gray hover:text-pale-green">
-							<h1 className="mr-4 sm:text-lg">generate</h1>
+						<button
+							aria-label="generate"
+							className="flex justify-center items-center w-full h-14 font-bold uppercase border-2 transition-colors sm:h-16 border-pale-green bg-pale-green text-dark-slate-gray hover:fill-pale-green hover:bg-dark-slate-gray hover:text-pale-green"
+						>
+							<span className="mr-4 sm:text-lg">generate</span>
 							<IconArrowRight className="fill-inherit" />
 						</button>
 					</form>
